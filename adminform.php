@@ -3,50 +3,26 @@ require_once 'functions.php';
 
 $db = db_connect();
 
-$valid=true;
-
 if ($_POST)
 {
     $brand=htmlspecialchars($_POST['brand']);
     $model=htmlspecialchars($_POST['model']);
-    $mainchar=htmlspecialchars($_POST['mainchar']);
-    $genre=htmlspecialchars($_POST['genre']);    
+    $price=htmlspecialchars($_POST['price']);
+    $os=htmlspecialchars($_POST['os']);
+    $color=htmlspecialchars($_POST['color']);    
     
-    
-    if (empty($_POST['name']))
-    {
-        $errors=['You need to fill in the name'];
-        $valid=false;
-    }
-    
-    if (empty($_POST['plot']))
-    {
-        $errors=['You need to fill in the plot'];
-        $valid=false;
-    }
-    
-    if ($valid)
-    {
-        $stmt=$db->prepare('INSERT INTO movies (name, description, main_character, genre) VALUES (?, ?, ?, ?)'); //the values (placeholders) could be written like :name.
-        $stmt->execute([$_POST['name'], $_POST['plot'],$_POST['mainchar'],$_POST['genre']]);
-        header('Location: workout1.php?status=ok');
-        exit();
-    }
-    else
-    {
-        foreach($errors as $error)
-        {
-            echo $error;
-        }
-    }
-
+    $stmt=$db->prepare('INSERT INTO mobiles (brand, model, price, os, color) VALUES (?, ?, ?, ?, ?)');
+    $stmt->execute([$_POST['name'], $_POST['plot'],$_POST['mainchar'],$_POST['genre']]);
+    header('Location: adminform.php?status=ok');
+    exit();
 }
 else
 {
-    $name=null;
-    $plot=null;
-    $mainchar=null;
-    $genre=null;
+    $brand= null;
+    $model= null;
+    $price= null;
+    $os= null;
+    $color= null;
 }
 if (isset($_GET['status']) && $_GET['status'] == 'ok') {
     echo 'How about you add more?';
