@@ -63,7 +63,6 @@ else
 
         <h1>Fabulous Mobiles</h1>
 
-        <?php $valid = true; ?>
         <div class="form">
         <form action="" method="post">
             <label for="brand">Brand:</label> 
@@ -71,7 +70,6 @@ else
             <br>
             <?php 
                 if ($_POST)  {
-                    $brand = htmlspecialchars($_POST['brand']); 
                     if (empty($_POST['brand'])) { 
                         echo 'You need to fill in the brand.';
                         $valid = false;  
@@ -83,13 +81,13 @@ else
             <label for="model">Model:</label> 
             <input type="text" name="model">
             <br>
-            <?php if ($_POST) {$model=htmlspecialchars($_POST['model']); { if (empty($_POST['model'])) { echo 'You need to fill in the model.'; $valid = false; } } }?>
+            <?php if ($_POST) { if (empty($_POST['model'])) { echo 'You need to fill in the model.'; $valid = false; } }?>
             <br>
             <br>
             <label for="price">Price:</label>             
             <input type="number" name="price">
             <br>
-            <?php if ($_POST) { $price=htmlspecialchars($_POST['price']); { if (empty($_POST['price'])) { echo 'You need to fill in the price.'; $valid = false; } } }?>
+            <?php if ($_POST) { if (empty($_POST['price'])) { echo 'You need to fill in the price.'; $valid = false; } }?>
             <br>
             <br>
             <label for="os">Operating System:</label> 
@@ -108,17 +106,16 @@ else
             </select>
             <br>
             <br>
-            <input class=btn btn-success; class="button" type="submit" name="submit" value="Submit">
+            <input class="btn btn-success button" type="submit" name="submit" value="Submit">
         </form>  
         </div>
     </section>
     <?php
-    $db = db_connect();
     if ($_POST) {
         if ($valid)
         {
             $stmt=$db->prepare('INSERT INTO mobiles1 (brand, model, price, os, color) VALUES (?, ?, ?, ?, ?)');
-            $stmt->execute($_POST['brand'], $_POST['model'], $_POST['price'], $_POST['$os1'], $_POST['color']);
+            $stmt->execute([$_POST['brand'], $_POST['model'], $_POST['price'], $_POST['os'], $_POST['color']]);
             header('Location: success.php');
             exit();
         }
