@@ -1,6 +1,5 @@
 <?php
 require_once 'functions.php';
-require_once 'genres.php';
 
 $db = db_connect();
 
@@ -8,8 +7,8 @@ $valid=true;
 
 if ($_POST)
 {
-    $name=htmlspecialchars($_POST['name']);
-    $plot=htmlspecialchars($_POST['plot']);
+    $brand=htmlspecialchars($_POST['brand']);
+    $model=htmlspecialchars($_POST['model']);
     $mainchar=htmlspecialchars($_POST['mainchar']);
     $genre=htmlspecialchars($_POST['genre']);    
     
@@ -84,9 +83,38 @@ echo '<br>';
         <h1>Movie DB</h1>
 
         <div class="form">
-            <?php
-                echo build_form('', '', '');
-            ?>
+        <form action="" method="post">
+            Brand:
+            <input type="text" name="brand">
+            <br>
+            <br>
+            Model:
+            <br>
+            <input type="text" name="model">
+            <br>
+            <br>
+            Price:            
+            <input type="number" name="price">
+            <br>
+            <br>
+            Operating System:
+            <select name="os">
+                <option>os </option> 
+                <option>os </option>
+                <option>os </option>
+            </select>
+            <br>
+            <br>
+            Color:
+            <select name="color">
+                <option>color </option> 
+                <option>color </option>
+                <option>color </option>
+            </select>
+            <br>
+            <br>
+            <input class="button" type="submit" name="submit" value="Submit">
+        </form>';  
         </div>
     </section>
 </body>
