@@ -2,6 +2,7 @@
 require_once 'functions.php';
 require_once 'os.php';
 require_once 'colors.php';
+require_once 'brands.php';
 $db= db_connect();
 
 
@@ -26,6 +27,7 @@ if ($_POST)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <title>Edit form</title>
 </head>
 <body>
@@ -44,7 +46,7 @@ if ($_POST)
     </ul>
   </div>
 </nav>
-    <section>
+    <section class="mt-5">
 
         <h1>Fabulous Mobiles Edit</h1>
 
@@ -57,8 +59,9 @@ if ($_POST)
                     <option value="<?php echo $i?>"><?php echo $brandi?></option> 
                 <?php endforeach; ?>
             </select>
-            Model:
             <br>
+            <br>
+            Model:
             <input type="text" name="model" value="<?php echo htmlspecialchars($mobile['model'])?>">
             <br>
             <br>
