@@ -1,7 +1,7 @@
 <?php
 
 function customer_form() {
-$customerform = '
+$customerform[] = '
 
 <form action="" method="post">
 <label for="name">Firs name: </label>
