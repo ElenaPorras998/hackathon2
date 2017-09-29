@@ -66,12 +66,16 @@ else
         <div class="form">
         <form action="" method="post">
             <label for="brand">Brand:</label> 
-            <input type="text" name="brand">
+            <select name="brand">
+                <?php foreach ($os as $i=>$osi): ?>
+                    <option value="<?php echo $i?>"><?php echo $osi?></option> 
+                <?php endforeach; ?>
+            </select>
             <br>
             <?php 
                 if ($_POST)  {
                     if (empty($_POST['brand'])) { 
-                        echo 'You need to fill in the brand.';
+                        echo '<p>You need to fill in the brand.</p>';
                         $valid = false;  
                     } 
                 }
@@ -81,13 +85,13 @@ else
             <label for="model">Model:</label> 
             <input type="text" name="model">
             <br>
-            <?php if ($_POST) { if (empty($_POST['model'])) { echo 'You need to fill in the model.'; $valid = false; } }?>
+            <?php if ($_POST) { if (empty($_POST['model'])) { echo '<p>You need to fill in the model.</p>'; $valid = false; } }?>
             <br>
             <br>
             <label for="price">Price:</label>             
             <input type="number" name="price">
             <br>
-            <?php if ($_POST) { if (empty($_POST['price'])) { echo 'You need to fill in the price.'; $valid = false; } }?>
+            <?php if ($_POST) { if (empty($_POST['price'])) { echo '<p>You need to fill in the price.</p>'; $valid = false; } }?>
             <br>
             <br>
             <label for="os">Operating System:</label> 
