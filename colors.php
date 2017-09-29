@@ -6,3 +6,5 @@ $colors = [
     'gold',
     'pink'
 ];
+
+?>
