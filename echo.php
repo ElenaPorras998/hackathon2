@@ -56,7 +56,7 @@
             <p class="card-text"> <div> <?php echo 'Model: ' . htmlspecialchars($mobile['model']); ?> </div> </p>
             <p class="card-text"> <div> <?php echo 'Price: ' . htmlspecialchars($mobile['price']); ?> </div> </p>
             <p class="card-text"> <div> <?php echo 'Color: ' . htmlspecialchars($colors[$mobile['color']]); ?> </div> </p>
-            <a href="edit.php?id=<?php htmlspecialchars($mobile['id']) ?>" class="btn btn-primary"> edit </a>
+            <a href="edit.php?id=<?php echo htmlspecialchars($mobile['id']) ?>" class="btn btn-primary"> edit </a>
             </div>
             </div>
 
