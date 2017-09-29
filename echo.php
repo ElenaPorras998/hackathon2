@@ -40,41 +40,29 @@
  <h1>Fabulous Mobiles</h1>
  
  
-<?php foreach ($mobiles as $mobile) { ?>
+<?php foreach ($mobiles as $mobile) :  ?>
     <div class="card" style="width: 20rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
+            <img class="card-img-top" src="img/iPhone.jpg" alt="Card image cap">
             <div class="card-body">
             <h4 class="card-title"> 
             <div> <?php 
         echo 'Brand: ' . htmlspecialchars($mobile['brand']);
         echo '<br>';
-        echo '<br>';  }
-        ?> </div> </div></div></div></div>
-        {
-        echo '<br>';
-        echo '<br>';
-        echo 'Price: ' . htmlspecialchars($mobile['price']);
-        echo '<br>';
-        echo '<br>';
-        echo 'OS: ' . htmlspecialchars($os[$mobile['os']]);
-        echo '<br>';
-        echo 'Color: ' . htmlspecialchars($os[$mobile['color']]);
-        echo '<br>';
-        echo  '<a href="edit.php?id=' . htmlspecialchars($mobile['id']) . '">edit</a>';
-        echo '<br>';
-        echo '<br>';
-        echo '<br>';
-        echo 'Model: ' . htmlspecialchars($mobile['model']);
-    }
-    ?>
+        echo '<br>';  
+        ?> </div>    
         
       </h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+
+            <p class="card-text"> <div> <?php echo 'Model: ' . htmlspecialchars($mobile['model']); ?> </div> </p>
+            <p class="card-text"> <div> <?php echo 'Price: ' . htmlspecialchars($mobile['price']); ?> </div> </p>
+            <p class="card-text"> <div> <?php echo 'Color: ' . htmlspecialchars($colors[$mobile['color']]); ?> </div> </p>
+            <a href="edit.php?id=<?php htmlspecialchars($mobile['id']) ?>" class="btn btn-primary"> edit </a>
             </div>
             </div>
 
+            
 
+<?php endforeach; ?> 
 
 
  
