@@ -19,6 +19,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <title>Mobiles</title>
+    <style>
+        #images img {
+            max-height: 250px;
+        }
+        body {
+            text-align: center; 
+        }
+
+    
+    </style>    
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,13 +47,13 @@
     </div>
     </nav>
 
-<div class="container">
+<div class="container-fluid">
 
  <h1>Fabulous Mobiles</h1>
  
  <div class="row">
 <?php foreach ($mobiles as $mobile) :  ?>
-    <div class="card m-2" style="width: 20rem;">
+    <div id=images class="card m-3" style="width: 20rem;">
             <img class="card-img-top" src="<?php echo $imgs[$mobile['brand']]?>" alt="Card image cap">
             <div class="card-body">
             <h4 class="card-title"> 
