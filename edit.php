@@ -9,14 +9,13 @@ $stmt = $db->prepare('SELECT * FROM mobiles1 WHERE id = ?');
 $stmt->execute([$_GET['id']]);
 $mobile= $stmt->fetch();
 
-$emobile="UPDATE `mobiles1` SET `brand`= ?, `model`= ?, `price`= , `os`= ?, `color`= ? WHERE `id` = ?";
-$emobile->execute($_POST['brand'], $_POST['model'], $_POST['price'], $_POST['os'], $_POST['color'], $_GET['id']);
-
-if ($db->query($mobile) === true)
+if ($_POST)
 {
-    echo 'Movie updated succesfully!';
-}
+    $emobile= $db->prepare("UPDATE `mobiles1` SET `brand`= ?, `model`= ?, `price`= ?, `os`= ?, `color`= ? WHERE `id` = ?");
+    $emobile->execute([$_POST['brand'], $_POST['model'], $_POST['price'], $_POST['os'], $_POST['color'], $_GET['id']]);
 
+    header('Location: success.php');
+}
 
 
 ?>
