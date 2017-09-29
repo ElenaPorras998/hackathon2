@@ -115,6 +115,7 @@ else
         if ($valid)
         {
             $stmt=$db->prepare('INSERT INTO mobiles1 (brand, model, price, os, color) VALUES (?, ?, ?, ?, ?)');
+            $stmt->execute($_POST['brand'], $_POST['model'], $_POST['price'], $_POST['os1'], $_POST['color']);
             $stmt->execute([$_POST['brand'], $_POST['model'], $_POST['price'], $_POST['os'], $_POST['color']]);
             header('Location: success.php');
             exit();
