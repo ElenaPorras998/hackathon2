@@ -5,6 +5,9 @@ require_once 'os.php';
 
 $db = db_connect();
 
+$valid=true;
+$errors=[];
+
 if ($_POST)
 {
     $brand=htmlspecialchars($_POST['brand']);
@@ -13,10 +16,41 @@ if ($_POST)
     $os1=htmlspecialchars($_POST['os']);
     $color=htmlspecialchars($_POST['color']);    
     
-    $stmt=$db->prepare('INSERT INTO mobiles1 (brand, model, price, os, color) VALUES (?, ?, ?, ?, ?)');
-    $stmt->execute([$brand, $model, $price, $os1, $color]);
-    header('Location: adminform.php?status=ok');
-    exit();
+    
+    if (empty($_POST['brand']))
+    {
+        $errors[]='You need to fill in the brand.';
+        $valid=false;
+    }
+    
+    if (empty($_POST['model']))
+    {
+        $errors[]='You need to fill in the model.';
+        $valid=false;
+    }
+    
+    if (empty($_POST['price']))
+    {
+        $errors[]='You need to fill in the price.';
+        $valid=false;
+    }
+    
+    if ($valid)
+    {
+        $stmt=$db->prepare('INSERT INTO mobiles1 (brand, model, price, os, color) VALUES (?, ?, ?, ?, ?)');
+        $stmt->execute([$brand, $model, $price, $os1, $color]);
+        header('Location: adminform.php?status=ok');
+        exit();
+    }
+    else
+    {
+        foreach($errors as $error)
+        {
+            echo $error;
+        }
+    }
+
+
 }
 else
 {
@@ -41,7 +75,9 @@ echo '<br>';
 </head>
 <body>
     <section>
-        <h1>Mobile Shop</h1>
+
+        <h1>Fabulous Mobiles</h1>
+
 
         <div class="form">
         <form action="" method="post">
