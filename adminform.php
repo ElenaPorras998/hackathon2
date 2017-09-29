@@ -1,5 +1,7 @@
 <?php
 require_once 'functions.php';
+require_once 'colors.php';
+require_once 'os.php';
 
 $db = db_connect();
 
@@ -8,11 +10,11 @@ if ($_POST)
     $brand=htmlspecialchars($_POST['brand']);
     $model=htmlspecialchars($_POST['model']);
     $price=htmlspecialchars($_POST['price']);
-    $os=htmlspecialchars($_POST['os']);
+    $os1=htmlspecialchars($_POST['os']);
     $color=htmlspecialchars($_POST['color']);    
     
     $stmt=$db->prepare('INSERT INTO mobiles (brand, model, price, os, color) VALUES (?, ?, ?, ?, ?)');
-    $stmt->execute([$_POST['name'], $_POST['plot'],$_POST['mainchar'],$_POST['genre']]);
+    $stmt->execute([$brand, $model, $price, $os1, $color]);
     header('Location: adminform.php?status=ok');
     exit();
 }
@@ -21,11 +23,11 @@ else
     $brand= null;
     $model= null;
     $price= null;
-    $os= null;
+    $os1= null;
     $color= null;
 }
 if (isset($_GET['status']) && $_GET['status'] == 'ok') {
-    echo 'How about you add more?';
+    echo 'Data added succesfully!';
 }
 echo '<br>';
 ?>
@@ -35,24 +37,7 @@ echo '<br>';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        section{
-            position: absolute;
-            left: 30%;
-        }
-        div.form{
-            margin: auto;
-            background-color: cyan;
-            padding: 5em;
-            display: block;
-            margin: auto;
-        }
-        form{
-            position: relative;
-            align-self: center;
-        }
-    </style>
+    <title>Admin form</title>
 </head>
 <body>
     <section>
@@ -75,22 +60,22 @@ echo '<br>';
             <br>
             Operating System:
             <select name="os">
-                <option>os </option> 
-                <option>os </option>
-                <option>os </option>
+                <?php foreach ($os as $i=>$osi): ?>
+                    <option value="<?php echo $i?>"><?php echo $osi?></option> 
+                <?php endforeach; ?>
             </select>
             <br>
             <br>
             Color:
             <select name="color">
-                <option>color </option> 
-                <option>color </option>
-                <option>color </option>
+                <?php foreach ($colors as $i=>$color): ?>
+                    <option value="<?php echo $i?>"><?php echo $color?></option> 
+                <?php endforeach; ?>
             </select>
             <br>
             <br>
             <input class="button" type="submit" name="submit" value="Submit">
-        </form>';  
+        </form>  
         </div>
     </section>
 </body>
