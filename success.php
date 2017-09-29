@@ -36,17 +36,27 @@ include_once 'customer.php'
 
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="adminform.php">Add a mobile <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="echo.php">Mobile list</a>
+      </li>
+    </ul>
+  </div>
+</nav>
     <div class=thanks>
-        <h1>Thank you for your order</h1>
+        <h1>Success!</h1>
         
     </div>
     <div>
-        <h3>Your order was succesfuly received and being processed</h3>
-        <h3> Order overview: </h3>
-    </div>
-    <div>
-        <a href="#"></a>
-        <a href="#"></a>
+        <h3>Your data has been saved correctly.</h3>
     </div>
 
 </body>
