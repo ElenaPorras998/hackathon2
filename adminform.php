@@ -17,36 +17,6 @@ if ($_POST)
     $color=htmlspecialchars($_POST['color']);    
     
 }
-    
-    
-
-    
-  
-    
-    
-
-
-if (isset($_GET['status']) && $_GET['status'] == 'ok') {
-    echo 'Data added succesfully!';
-}
-echo '<br>';
-    if ($valid)
-    {
-        $stmt=$db->prepare('INSERT INTO mobiles1 (brand, model, price, os, color) VALUES (?, ?, ?, ?, ?)');
-        $stmt->execute([$brand, $model, $price, $os1, $color]);
-        header('Location: success.php');
-        exit();
-    }
-    else
-    {
-        foreach($errors as $error)
-        {
-            echo $error;
-        }
-    }
-
-
-}
 else
 {
     $brand= null;
