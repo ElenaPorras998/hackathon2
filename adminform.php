@@ -73,14 +73,6 @@ else
                 <?php endforeach; ?>
             </select>
             <br>
-            <?php 
-                if ($_POST)  {
-                    if (empty($_POST['brand'])) { 
-                        $valid = false;  
-                    } 
-                }
-            ?>
-            <br>
             <br>
             <label for="model">Model:</label> 
             <input type="text" name="model">
