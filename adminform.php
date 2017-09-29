@@ -13,7 +13,7 @@ if ($_POST)
     $os1=htmlspecialchars($_POST['os']);
     $color=htmlspecialchars($_POST['color']);    
     
-    $stmt=$db->prepare('INSERT INTO mobiles (brand, model, price, os, color) VALUES (?, ?, ?, ?, ?)');
+    $stmt=$db->prepare('INSERT INTO mobiles1 (brand, model, price, os, color) VALUES (?, ?, ?, ?, ?)');
     $stmt->execute([$brand, $model, $price, $os1, $color]);
     header('Location: adminform.php?status=ok');
     exit();
