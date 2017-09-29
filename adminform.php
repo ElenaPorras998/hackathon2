@@ -76,7 +76,6 @@ else
             <?php 
                 if ($_POST)  {
                     if (empty($_POST['brand'])) { 
-                        echo '<p>You need to fill in the brand.</p>';
                         $valid = false;  
                     } 
                 }
