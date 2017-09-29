@@ -1,10 +1,10 @@
 <?php 
 require 'os.php';
 require 'colors.php';
-require_once 'db.php';
+require_once 'functions.php';
 $db = db_connect();
 
-$stmt = $db->prepare('SELECT * FROM mobiles');
+$stmt = $db->prepare('SELECT * FROM mobiles1');
 $stmt ->execute();
 $mobiles = $stmt->fetchAll();
 

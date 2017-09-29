@@ -41,7 +41,7 @@ echo '<br>';
 </head>
 <body>
     <section>
-        <h1>Movie DB</h1>
+        <h1>Mobile Shop</h1>
 
         <div class="form">
         <form action="" method="post">
