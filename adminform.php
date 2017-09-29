@@ -1,6 +1,7 @@
 <?php
 require_once 'functions.php';
 require_once 'colors.php';
+require_once 'brands.php';
 require_once 'os.php';
 
 $db = db_connect();
@@ -67,8 +68,8 @@ else
         <form action="" method="post">
             <label for="brand">Brand:</label> 
             <select name="brand">
-                <?php foreach ($os as $i=>$osi): ?>
-                    <option value="<?php echo $i?>"><?php echo $osi?></option> 
+                <?php foreach ($brands as $i=>$brandi): ?>
+                    <option value="<?php echo $i?>"><?php echo $brandi?></option> 
                 <?php endforeach; ?>
             </select>
             <br>

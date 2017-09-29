@@ -1,0 +1,9 @@
+<?php
+$brands=[
+    'Apple',
+    'Samsung',
+    'Nokia',
+    'Google',
+    'Huawei',
+];
+?>

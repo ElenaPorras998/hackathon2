@@ -51,10 +51,12 @@ if ($_POST)
 
         <div class="form">
         <form action="" method="post">
-            Brand:
-            <input type="text" name="brand" value="<?php echo htmlspecialchars($mobile['brand'])?>">
-            <br>
-            <br>
+        <label for="brand">Brand:</label> 
+            <select name="brand">
+                <?php foreach ($brands as $i=>$brandi): ?>
+                    <option value="<?php echo $i?>"><?php echo $brandi?></option> 
+                <?php endforeach; ?>
+            </select>
             Model:
             <br>
             <input type="text" name="model" value="<?php echo htmlspecialchars($mobile['model'])?>">

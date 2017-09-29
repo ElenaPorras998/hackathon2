@@ -2,6 +2,7 @@
     require 'os.php';
     require 'colors.php';
     require_once 'functions.php';
+    require_once 'images.php';
     $db = db_connect();
 
     $stmt = $db->prepare('SELECT * FROM mobiles1');
@@ -41,8 +42,8 @@
  
  <div class="row">
 <?php foreach ($mobiles as $mobile) :  ?>
-    <div class="card" style="width: 20rem;">
-            <img class="card-img-top" src="img/iPhone.jpg" alt="Card image cap">
+    <div class="card m-2" style="width: 20rem;">
+            /* <img class="card-img-top" src="<?php echo $imgs[$mobile['brand']]?>" alt="Card image cap"> */
             <div class="card-body">
             <h4 class="card-title"> 
             <div> <?php 
