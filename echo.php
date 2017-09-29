@@ -20,7 +20,7 @@ foreach ($mobiles as $mobile) {
     echo '<br>';
     echo 'OS: ' . htmlspecialchars($os[$mobile['os']]);
     echo '<br>';
-    echo 'Color: ' . htmlspecialchars($os[$mobile['color']]);
+    echo 'Color: ' . htmlspecialchars($colors[$mobile['color']]);
     echo '<br>';
     echo  '<a href="edit.php?id=' . htmlspecialchars($mobile['id']) . '">edit</a>';
     echo '<br>';
