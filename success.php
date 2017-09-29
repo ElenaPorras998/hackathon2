@@ -43,7 +43,7 @@ include_once 'customer.php'
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="adminform.php">Add a mobile <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="adminform.php">Add a mobile</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="echo.php">Mobile list</a>
