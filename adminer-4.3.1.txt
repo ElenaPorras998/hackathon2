@@ -1,0 +1,22 @@
+﻿-- Adminer 4.3.1 MySQL dump
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+DROP TABLE IF EXISTS `mobiles1`;
+CREATE TABLE `mobiles1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `brand` varchar(300) NOT NULL,
+  `model` varchar(300) NOT NULL,
+  `price` int(11) NOT NULL,
+  `os` int(11) NOT NULL,
+  `color` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `mobiles1` (`id`, `brand`, `model`, `price`, `os`, `color`) VALUES
+(1,	'Samsung',	'Galaxy',	100,	0,	0);
+
+-- 2017-09-29 08:58:05
