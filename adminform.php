@@ -18,35 +18,8 @@ if ($_POST)
     
 }
     
-    
-
-    
-  
-    
-    
 
 
-if (isset($_GET['status']) && $_GET['status'] == 'ok') {
-    echo 'Data added succesfully!';
-}
-echo '<br>';
-    if ($valid)
-    {
-        $stmt=$db->prepare('INSERT INTO mobiles1 (brand, model, price, os, color) VALUES (?, ?, ?, ?, ?)');
-        $stmt->execute([$brand, $model, $price, $os1, $color]);
-        header('Location: success.php');
-        exit();
-    }
-    else
-    {
-        foreach($errors as $error)
-        {
-            echo $error;
-        }
-    }
-
-
-}
 else
 {
     $brand= null;
@@ -55,6 +28,7 @@ else
     $os1= null;
     $color= null;
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -111,13 +85,13 @@ else
             <label for="model">Model:</label> 
             <input type="text" name="model">
             <br>
-            <?php if ($_POST) { if (empty($_POST['model'])) { echo 'You need to fill in the model.'; $valid = false; } }?>
+            <?php if ($_POST) {$model=htmlspecialchars($_POST['model']); { if (empty($_POST['model'])) { echo 'You need to fill in the model.'; $valid = false; } } }?>
             <br>
             <br>
             <label for="price">Price:</label>             
             <input type="number" name="price">
             <br>
-            <?php if ($_POST) { if (empty($_POST['price'])) { echo 'You need to fill in the price.'; $valid = false; } }?>
+            <?php if ($_POST) { $price=htmlspecialchars($_POST['price']); { if (empty($_POST['price'])) { echo 'You need to fill in the price.'; $valid = false; } } }?>
             <br>
             <br>
             <label for="os">Operating System:</label> 
@@ -143,15 +117,13 @@ else
     <?php
     $db = db_connect();
     if ($_POST) {
-    if ($valid)
-    {
-        var_dump($_POST);
-        var_dump($price);
-        $stmt=$db->prepare('INSERT INTO mobile1 (brand, model, price, os, color) VALUES (?, ?, ?, ?, ?)');
-        $stmt->execute( $_POST['brand'], $_POST['model'], $_POST['price'], $_POST['os1'], $_POST ['$color']);
-        header('Location: adminform.php?status=ok');
-        exit();
-         }
+        if ($valid)
+        {
+            $stmt=$db->prepare('INSERT INTO mobiles1 (brand, model, price, os, color) VALUES (?, ?, ?, ?, ?)');
+            $stmt->execute($_POST['brand'], $_POST['model'], $_POST['price'], $_POST['$os1'], $_POST['color']);
+            header('Location: success.php');
+            exit();
+        }
     }
     ?>
 </body>
